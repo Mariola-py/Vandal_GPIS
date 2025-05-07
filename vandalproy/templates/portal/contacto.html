@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VANDAL</title>
+  <!-- Enlace al archivo de estilos principal -->
+  <link rel="stylesheet" href="../static/css/styles.css">
+  <link rel="stylesheet" href="../static/css/formularios.css">
+  <link rel="stylesheet" href="../static/css/contacto.css">
+</head>
+
+<body>
+  <!-- Header social + login -->
+  <nav class="navbar">
+    <div class="login-icon">
+      <a href="../usuarios/login.html">
+        <img class="social-icons" src="../static/images/Logos/Login_icon.png" alt="Login Icon">
+      </a>
+    </div>
+  </nav>
+
+  <!-- Logo principal -->
+  <nav class="navbar">
+    <div>
+      <a href="../common/home.html">
+        <img class="logo" src="../static/images/Logos/vandal_logo.PNG" alt="Vandal Logo">
+      </a>
+    </div>
+  </nav>
+
+  <!-- Navbar principal -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="../common/home.html">INICIO</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="redactores.html">Equipo</a></li>
+      <li><a href="videos.html">Vídeos</a></li>
+      <li><a href="calendario.html">Calendario</a></li>
+      <li><a href="ranking.html">Ranking</a></li>
+    </ul>
+  </nav>
+  
+<form class="contacto" action="/contacto" method="POST">
+  <h2>Contacta con nosotros</h2>
+  <label for="nombre">Nombre</label>
+  <input type="text" id="nombre" name="nombre" required><br>
+
+  <label for="email">Correo electrónico</label>
+  <input type="email" id="email" name="email" required><br>
+
+  <label for="asunto">Asunto</label>
+  <input type="text" id="asunto" name="asunto" required><br>
+
+  <label for="mensaje">Mensaje</label><br>
+  <textarea id="mensaje" name="mensaje" rows="5" required></textarea><br>
+
+  <button type="submit">Enviar</button>
+</form>
+
+<!-- Footer -->
+<footer>
+  <nav class="navbar">
+    <div>
+      <a href="../common/home.html">
+        <img class="logo-footer" src="../static/images/Logos/vandal_logo.PNG" alt="Vandal Logo Footer">
+      </a>
+    </div>
+  </nav>
+  <div class="footer-nav">
+    <a href="contacto.html">Trabaja con nosotros</a>
+    <a href="#">Cookies</a>
+    <a href="legal.html">Aviso Legal</a>
+  </div>
+  <div>
+    <a href="https://x.com/home?lang=es">
+      <img class="social-icons" src="../static/images/Logos/X_logo_2023_original.svg.png" alt="Twitter">
+    </a>
+    <a href="https://instagram.com">
+      <img class="social-icons" src="../static/images/Logos/logotipo-de-instagram.png" alt="Instagram">
+    </a>
+    <a href="https://youtube.com">
+      <img class="social-icons" src="../static/images/Logos/Youtube_logo.png" alt="YouTube">
+    </a>
+  </div>
+  <div class="footer-bottom">Copyright Vandal © 2025 - Prohibida la reproducción total o parcial sin permiso.</div>
+</footer>
+</body>
+
+</html>
