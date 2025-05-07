@@ -1,0 +1,38 @@
+/* Noticias Destacadas */
+.list-noticias {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .noticia {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 20px;
+  }
+  
+  .noticia .time {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 5px;
+  }
+  
+  .noticia .headline {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .noticia .summary {
+    font-size: 0.95rem;
+    color: #ffffff;
+    margin-top: 10px;
+  }
+  
+  .noticia .image {
+    position: relative;
+    height: 360px;
+    width: auto;
+  }

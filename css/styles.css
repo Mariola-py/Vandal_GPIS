@@ -1,0 +1,129 @@
+/* Estilos elementos html */
+:root {
+  --primary-color: #fff;
+  --accent-color: #d00000;
+  --bg-light: #f9f9f9;
+  --text-color: #ffffff;
+  --font-sans: 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-color);
+  background: #14095a;
+}
+
+.login-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-right: auto;
+}
+
+.social-icons {
+  width: 30px;
+}
+
+/* Navbar */
+nav.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.logo-footer {
+  width: 50%;
+  height: 50%;
+}
+
+nav.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav.navbar ul li a {
+  font-weight: bold;
+  color: var(--primary-color);
+  padding: 5px;
+}
+
+nav.navbar ul li a:hover {
+  color: var(--accent-color);
+}
+
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section h2 {
+  font-size: 2rem;
+  position: relative;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+section h2::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
+  display: block;
+  margin: 10px auto 0;
+}
+
+/* Botón gigante encima del footer */
+.contact-button {
+  display: inline-block;
+  padding: 20px 40px;
+  background-color: #b61ee0d4;
+  color: white;
+  text-decoration: none;
+  border-radius: 35px;
+  /* Hace que el botón sea redondeado */
+  font-size: 35px;
+  transition: background-color 0.3s ease;
+}
+
+
+/* Footer */
+footer {
+  background: var(--primary-color);
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 20px;
+  background-color: #14095a;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.footer-nav a {
+  color: #ffffff;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
