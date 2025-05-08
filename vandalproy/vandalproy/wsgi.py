@@ -1,5 +1,5 @@
 """
-WSGI config for Vandal_GPIS project.
+WSGI config for vandalproy project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Vandal_GPIS.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vandalproy.settings')
 
 application = get_wsgi_application()

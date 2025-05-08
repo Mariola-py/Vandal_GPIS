@@ -1,5 +1,5 @@
 """
-ASGI config for Vandal_GPIS project.
+ASGI config for vandalproy project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Vandal_GPIS.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vandalproy.settings')
 
 application = get_asgi_application()
