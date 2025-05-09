@@ -26,5 +26,4 @@ class Comment(models.Model):
 
 class UserRole(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    role = models.CharField(max_length=50, choices=[('admin', 'Admin'), ('editor', 'Editor'), ('viewer', 'Viewer')])
-
+    role = models.CharField(max_length=50, choices=[('admin', 'Admin'), ('editor', 'Editor'), ('colaborator', 'Colaborator'), ('subscriber', 'Subscriber')])

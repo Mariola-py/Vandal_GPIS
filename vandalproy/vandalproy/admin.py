@@ -34,7 +34,4 @@ class PaginaAdmin(admin.ModelAdmin):
 
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Pagina, PaginaAdmin)
-
-
-
 admin.site.register(UserRole)
