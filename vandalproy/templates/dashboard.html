@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Bienvenido, {{ user.username }}</h1>
+    <h2>Comentarios</h2>
+    <ul>
+        {% for comment in comments %}
+            <li><strong>{{ comment.user.username }}:</strong> {{ comment.content }} ({{ comment.created_at }})</li>
+        {% endfor %}
+    </ul>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" name="comment">Publicar Comentario</button>
+    </form>
+
+    {% if role in 'admin' or role in 'editor' %}
+    <h2>Subir Videos</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file">
+        <button type="submit" name="upload">Subir</button>
+    </form>
+    {% endif %}
+
+    {% if role == 'admin' %}
+    <h2>Subir Código HTML</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file">
+        <button type="submit" name="html_upload">Subir</button>
+    </form>
+    {% endif %}
+</body>
+</html>
