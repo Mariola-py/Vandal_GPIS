@@ -21,10 +21,12 @@
       <a href="/en" class="lang-option">EN</a>
     </div>
     {% if user.is_authenticated %}
-    <div class="login-icon">
-      <a href="/logout/">
-        <button>Cerrar sesión</button>
-      </a>
+    <div class="login-dropdown">
+      <button class="dropdown-button">Bienvenido {{ user.username }}</button>
+      <div class="dropdown-content">
+        <a href="/dashboard/{{ user.userrole.role }}/">Ir a mi panel</a>
+        <a href="/logout/">Cerrar sesión</a>
+      </div>
     </div>
     {% else %}
     <div class="login-icon">
@@ -112,7 +114,8 @@
     </nav>
     </br>
     <div class="footer-bottom">
-      Copyright Vandal © 2025 - Prohibida la reproducción total o parcial de estos contenidos sin el permiso expreso de los autores.
+      Copyright Vandal © 2025 - Prohibida la reproducción total o parcial de estos contenidos sin el permiso expreso de
+      los autores.
     </div>
   </footer>
 </body>

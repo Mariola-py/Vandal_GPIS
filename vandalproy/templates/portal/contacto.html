@@ -20,12 +20,21 @@
       <span>|</span>
       <a href="/en" class="lang-option">EN</a>
     </div>
-    
+    {% if user.is_authenticated %}
+    <div class="login-dropdown">
+      <button class="dropdown-button">Bienvenido {{ user.username }}</button>
+      <div class="dropdown-content">
+        <a href="/dashboard/{{ user.userrole.role }}/">Ir a mi panel</a>
+        <a href="/logout/">Cerrar sesión</a>
+      </div>
+    </div>
+    {% else %}
     <div class="login-icon">
-      <a href="/login">
+      <a href="/login/">
         <img class="social-icons" src="{% static 'images/Logos/Login_icon.png' %}" alt="Login Icon">
       </a>
     </div>
+    {% endif %}
   </nav>
 
   <!-- Logo principal -->
@@ -51,10 +60,10 @@
 
   <form class="contacto" onsubmit="enviarCorreo(event)">
     <h2>Contacta con nosotros</h2>
-    
+
     <label for="nombre">Nombre</label>
     <input type="text" id="nombre" name="nombre" required><br>
-    
+
     <label for="email">Correo electrónico</label>
     <input type="email" id="email" name="email" required><br>
 
@@ -81,7 +90,8 @@
     </nav>
     </br>
     <div class="footer-bottom">
-      Copyright Vandal © 2025 - Prohibida la reproducción total o parcial de estos contenidos sin el permiso expreso de los autores.
+      Copyright Vandal © 2025 - Prohibida la reproducción total o parcial de estos contenidos sin el permiso expreso de
+      los autores.
     </div>
   </footer>
 
@@ -90,20 +100,20 @@
   <script>
     function enviarCorreo(event) {
       event.preventDefault();
-  
+
       const nombre = document.getElementById("nombre").value;
       const email = document.getElementById("email").value;
       const asunto = document.getElementById("asunto").value;
       const mensaje = document.getElementById("mensaje").value;
-  
+
       const destinatario = "admin@webvandal.com";
       const asuntoCodificado = encodeURIComponent(asunto);
       const cuerpo = encodeURIComponent(
         `Nombre: ${nombre}\nCorreo: ${email}\n\nMensaje:\n${mensaje}`
       );
-  
+
       const mailtoLink = `mailto:${destinatario}?subject=${asuntoCodificado}&body=${cuerpo}`;
-  
+
       window.location.href = mailtoLink;
     }
   </script>
