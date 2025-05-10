@@ -1,7 +1,7 @@
 /* Estilos elementos html */
 :root {
   --primary-color: #fff;
-  --accent-color: #d00000;
+  --accent-color: #a7a7a7;
   --bg-light: #f9f9f9;
   --text-color: #ffffff;
   --font-sans: 'Helvetica Neue', Arial, sans-serif;
@@ -16,17 +16,30 @@
 body {
   font-family: var(--font-sans);
   color: var(--text-color);
-  background: #14095a;
+  background: #110F5D;
 }
 
 .login-icon {
   font-size: 1.2rem;
   cursor: pointer;
-  margin-left: 95%;
+  margin-left: 80%;
+}
+
+.language-switch {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.lang-option {
+  color: white;
 }
 
 .social-icons {
-  width: 50px;
+  width: 40px;
 }
 
 /* Estilos para mejorar la legibilidad */
@@ -88,14 +101,18 @@ nav.navbar {
 }
 
 .logo-footer {
-  width: 50%;
-  height: 50%;
+  width: 20%;
+  height: 20%;
 }
 
 nav.navbar ul {
   list-style: none;
   display: flex;
   gap: 20px;
+}
+
+.footer-nav a:hover {
+  color: var(--accent-color);
 }
 
 nav.navbar ul li a {
@@ -150,7 +167,7 @@ footer {
   padding: 40px 20px;
   text-align: center;
   margin-top: 20px;
-  background-color: #14095a;
+  background-color: #110F5D;
 }
 
 .footer-nav {
