@@ -1,11 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 </head>
+
 <body>
     <!-- Header social + login -->
     <nav class="navbar">
@@ -15,11 +17,12 @@
             <a href="/en" class="lang-option">EN</a>
         </div>
         {% if user.is_authenticated %}
-        <div class="login-icon">
-            <p class="welcome-message">Bienvenido {{ user.username }}</p>
-            <a href="/logout/">
-                <button>Cerrar sesión</button>
-            </a>
+        <div class="login-dropdown">
+            <button class="dropdown-button">Bienvenido {{ user.username }}</button>
+            <div class="dropdown-content">
+                <a href="/dashboard/{{ user.userrole.role }}/">Ir a mi panel</a>
+                <a href="/logout/">Cerrar sesión</a>
+            </div>
         </div>
         {% else %}
         <div class="login-icon">
@@ -34,11 +37,11 @@
             <button class="dropbtn">Menú</button>
             <div class="dropdown-content">
                 {% if role == 'redactor' %}
-                    <a href="/dashboard/redactor/">Panel de Redactor</a>
+                <a href="/dashboard/redactor/">Panel de Redactor</a>
                 {% elif role == 'colaborador' %}
-                    <a href="/dashboard/colaborador/">Panel de Colaborador</a>
+                <a href="/dashboard/colaborador/">Panel de Colaborador</a>
                 {% elif role == 'suscriptor' %}
-                    <a href="/dashboard/suscriptor/">Panel de Suscriptor</a>
+                <a href="/dashboard/suscriptor/">Panel de Suscriptor</a>
                 {% endif %}
                 <a href="/logout/">Cerrar sesión</a>
             </div>
@@ -48,7 +51,7 @@
     <h2>Comentarios</h2>
     <ul>
         {% for comment in comments %}
-            <li><strong>{{ comment.user.username }}:</strong> {{ comment.content }} ({{ comment.created_at }})</li>
+        <li><strong>{{ comment.user.username }}:</strong> {{ comment.content }} ({{ comment.created_at }})</li>
         {% endfor %}
     </ul>
     <form method="POST">
@@ -75,4 +78,5 @@
     </form>
     {% endif %}
 </body>
+
 </html>

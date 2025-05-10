@@ -20,12 +20,12 @@
       <a href="/en" class="lang-option">EN</a>
     </div>
     {% if user.is_authenticated %}
-    <p>Bienvenido {{ user.username }}</p>
-
-    <div class="login-icon">
-      <a href="/logout/">
-        <button>Cerrar sesión</button>
-      </a>
+    <div class="login-dropdown">
+      <button class="dropdown-button">Bienvenido {{ user.username }}</button>
+      <div class="dropdown-content">
+        <a href="/dashboard/{{ user.userrole.role }}/">Ir a mi panel</a>
+        <a href="/logout/">Cerrar sesión</a>
+      </div>
     </div>
     {% else %}
     <div class="login-icon">
@@ -86,34 +86,34 @@
   </section>
 
   <!-- Sección de comentarios -->
-<section id="comments-section">
-  <h2>Comentarios sobre el blog</h2>
+  <section id="comments-section">
+    <h2>Comentarios sobre el blog</h2>
 
-  {% if user.is_authenticated %}
-  <form action="{% url 'blog_list' %}" method="POST" class="comment-form">
-    {% csrf_token %}
-    <!-- post_id vacío → comentario “general” -->
-    <input type="hidden" name="post_id" value="">
-    {{ form.content }}
-    <button type="submit">Enviar comentario</button>
-  </form>
-  {% else %}
-  <p><a href="{% url 'login' %}">Inicia sesión</a> para dejar un comentario.</p>
-  {% endif %}
+    {% if user.is_authenticated %}
+    <form action="{% url 'blog_list' %}" method="POST" class="comment-form">
+      {% csrf_token %}
+      <!-- post_id vacío → comentario “general” -->
+      <input type="hidden" name="post_id" value="">
+      {{ form.content }}
+      <button type="submit">Enviar comentario</button>
+    </form>
+    {% else %}
+    <p><a href="{% url 'login' %}">Inicia sesión</a> para dejar un comentario.</p>
+    {% endif %}
 
-  <div class="comments-list">
-    {% if page_comments %}
+    <div class="comments-list">
+      {% if page_comments %}
       {% for comment in page_comments %}
       <div class="comment">
         <p><strong>{{ comment.user.username }}</strong>: {{ comment.content }}</p>
         <p class="date">{{ comment.created_at|date:"d M Y H:i" }}</p>
       </div>
       {% endfor %}
-    {% else %}
+      {% else %}
       <p>No hay comentarios sobre el blog aún. Sé el primero.</p>
-    {% endif %}
-  </div>
-</section>
+      {% endif %}
+    </div>
+  </section>
 
   <!-- Sección de contacto -->
   <div style="text-align: center;">
@@ -138,7 +138,8 @@
     </nav>
     </br>
     <div class="footer-bottom">
-      Copyright Vandal © 2025 - Prohibida la reproducción total o parcial de estos contenidos sin el permiso expreso de los autores.
+      Copyright Vandal © 2025 - Prohibida la reproducción total o parcial de estos contenidos sin el permiso expreso de
+      los autores.
     </div>
   </footer>
 </body>

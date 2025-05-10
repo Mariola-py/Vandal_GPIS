@@ -19,11 +19,21 @@
       <span>|</span>
       <a href="/en" class="lang-option">EN</a>
     </div>
+    {% if user.is_authenticated %}
+    <div class="login-dropdown">
+      <button class="dropdown-button">Bienvenido {{ user.username }}</button>
+      <div class="dropdown-content">
+        <a href="/dashboard/{{ user.userrole.role }}/">Ir a mi panel</a>
+        <a href="/logout/">Cerrar sesión</a>
+      </div>
+    </div>
+    {% else %}
     <div class="login-icon">
-      <a href="/login">
+      <a href="/login/">
         <img class="social-icons" src="{% static 'images/Logos/Login_icon.png' %}" alt="Login Icon">
       </a>
     </div>
+    {% endif %}
   </nav>
 
   <!-- Logo principal -->
