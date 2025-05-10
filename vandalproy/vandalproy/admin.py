@@ -2,9 +2,9 @@ from django.contrib import admin
 
 #Register your models here.
 from .models import Categoria, Pagina
+from .models import BlogPost, BlogComment
 from .models import UserRole
 from .models import Noticia
-from django.contrib.auth.models import User
 
 class CategoriaAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre')
@@ -37,3 +37,5 @@ admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Pagina, PaginaAdmin)
 admin.site.register(UserRole)
 admin.site.register(Noticia)
+admin.site.register(BlogPost)
+admin.site.register(BlogComment)

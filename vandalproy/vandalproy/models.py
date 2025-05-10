@@ -27,29 +27,33 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    image = models.ImageField(upload_to='blog/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
 
-# class BlogComment(models.Model):
-#     post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='comments')
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     content = models.TextField()
-#     created_at = models.DateTimeField(auto_now_add=True)
 class BlogComment(models.Model):
     post = models.ForeignKey(
         BlogPost,
         on_delete=models.CASCADE,
         related_name='comments',
-        null=True, blank=True   # <-- permitir comentarios “sueltos”
+        null=True, blank=True
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    parent = models.ForeignKey(
+        'self',
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name='replies'
+    )
 
     def __str__(self):
-        return f"{self.user.username} on {self.post.title}"
+        return f"{self.user.username} en {self.post.title if self.post else 'General'}"
+
     
 class Noticia(models.Model):
     titulo = models.CharField(max_length=200)

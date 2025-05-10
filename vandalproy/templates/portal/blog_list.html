@@ -60,73 +60,27 @@
   <section id="blog">
     <h2>Blog</h2>
     <div class="grid-3">
+      {% for post in posts %}
       <article class="card">
-        <div class="date">15 abril 2025</div>
-        <div class="title">¿Son demasiado caros los juegos modernos?</div>
-        <div class="desc">Varios ejemplos modernos nos hacen surgir la duda sobre el precio del gaming moderno y su gran
-          diferencia con tiempos pasados, pero, ¿Es realmente cierto?</div>
-        <div><img class="image" src="{% static 'images/Blog/2.jpg' %}" alt=""></div>
+        <div class="date">{{ post.created_at|date:"j F Y" }}</div>
+        <div class="title">{{ post.title }}</div>
+        <div class="desc">{{ post.content|truncatechars:180 }}</div>
+        <div>
+          {% if post.image %}
+          <a href="{% url 'blog_post' post.id %}">
+            <img class="image" src="{{ post.image.url }}" alt="{{ post.title }}">
+          </a>
+          {% else %}
+          <a href="{% url 'blog_post' post.id %}">
+            <img class="image" src="{% static 'images/placeholder.jpg' %}" alt="Sin imagen">
+          </a>
+          {% endif %}
+        </div>
       </article>
-      <article class="card">
-        <div class="date">28 abril 2025</div>
-        <div class="title">El desarrollo de un juego y como este puede afectar al producto final</div>
-        <div class="desc">En este artículo, exploraremos cómo el desarrollo de un juego puede influir en la experiencia
-          del usuario y en la calidad del producto final.</div>
-        <div><img class="image" src="{% static 'images/Blog/1.jpg' %}" alt=""></div>
-      </article>
-      <article class="card">
-        <div class="date">5 mayo 2025</div>
-        <div class="title">Los juegos como servicio, ¿El futuro del gaming o el comienzo de su decadencia?</div>
-        <div class="desc">En los últimos años hemos visto surgir muchos videojuegos como servicio, como fortnite, marvel
-          rivals, etc... ¿Son estos el futuro del gaming como nos venden? O su modelo predatorio ha hecho más mal que
-          bien?</div>
-        <div><img class="image" src="{% static 'images/Blog/3.jpg' %}" alt=""></div>
-      </article>
+      {% endfor %}
     </div>
   </section>
-
-  <!-- Sección de comentarios -->
-<section id="comments-section">
-  <h2 class="titulo-post"></h2>
-  <div class="comments-list">
-    {% if page_comments %}
-      {% for comment in page_comments %}
-      <div class="comment-block">
-        <div class="comment-header">
-          <div class="avatar"></div>
-          <div class="user-info">
-            <span class="username">{{ comment.user.username }}</span>
-            <span class="user-role">
-              {% with comment.user.userrole.role as rol %}
-                ROL ({{ rol|title }})
-              {% endwith %}
-            </span>
-          </div>
-        </div>
-        <div class="comment-meta">
-          <span class="comment-number">#{{ forloop.counter }}</span>
-          <span class="comment-time">Enviado hace {{ comment.created_at|timesince }}</span>
-        </div>
-        <div class="comment-content">{{ comment.content }}</div>
-      </div>
-      {% endfor %}
-    {% else %}
-      <p>No hay comentarios sobre el blog aún. Sé el primero.</p>
-    {% endif %}
-  </div>
-  {% if user.is_authenticated %}
-  <form action="{% url 'blog_list' %}" method="POST" class="comment-form">
-    {% csrf_token %}
-    <input type="hidden" name="post_id" value="">
-    {{ form.content }}
-    <button type="submit">Enviar comentario</button>
-  </form>
-  {% else %}
-  <p><a href="{% url 'login' %}">Inicia sesión</a> para dejar un comentario.</p>
-  {% endif %}
-</section>
-
-
+  
   <!-- Sección de contacto -->
   <div style="text-align: center;">
     <h1>¿Encontraste un bug en tu aventura?</h1>

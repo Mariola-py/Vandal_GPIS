@@ -75,6 +75,28 @@ def blog_list_view(request):
 # Vista de detalle de post con comentarios
 # Actualización para ordenar comentarios de más recientes a más antiguos
 def blog_post_view(request, post_id):
+    post = get_object_or_404(BlogPost, id=post_id)
+    form = CommentForm(request.POST or None)
+
+    if request.method == 'POST' and request.user.is_authenticated:
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.user = request.user
+            parent_id = request.POST.get('parent_id')
+            if parent_id:
+                comment.parent = BlogComment.objects.get(id=parent_id)
+            comment.save()
+            return redirect('blog_post', post_id=post.id)
+
+    # solo los comentarios principales (no respuestas)
+    top_comments = post.comments.filter(parent__isnull=True).order_by('created_at')
+    return render(request, 'portal/blog_detalle.html', {
+        'post': post,
+        'comments': top_comments,
+        'form': form,
+    })
+
     post = get_object_or_404(BlogPost.objects.prefetch_related('comments'), id=post_id)
     form = CommentForm(request.POST or None)
 
@@ -120,19 +142,6 @@ def register_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
-
-def blog_post_view(request, post_id):
-    try:
-        post = BlogPost.objects.prefetch_related('comments').get(id=post_id)
-    except BlogPost.DoesNotExist:
-        return render(request, 'error.html', {'message': 'El post no existe.'})
-
-    if request.method == 'POST' and request.user.is_authenticated:
-        comment_content = request.POST.get('comment')
-        if comment_content:
-            BlogComment.objects.create(post=post, user=request.user, content=comment_content)
-
-    return render(request, 'portal/blog.html', {'post': post, 'comments': post.comments.all()})
 
 def submit_comment(request):
     if request.method == 'POST' and request.user.is_authenticated:
