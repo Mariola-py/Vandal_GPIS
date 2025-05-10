@@ -4,7 +4,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.core.files.storage import FileSystemStorage
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import User
-from .models import BlogPost, BlogComment, UserRole, Noticia
+from .models import BlogPost, BlogComment, UserRole
 from .forms import CommentForm
 from django.contrib.auth.backends import ModelBackend
 import logging
@@ -120,40 +120,3 @@ def register_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
-
-def blog_post_view(request, post_id):
-    try:
-        post = BlogPost.objects.prefetch_related('comments').get(id=post_id)
-    except BlogPost.DoesNotExist:
-        return render(request, 'error.html', {'message': 'El post no existe.'})
-
-    if request.method == 'POST' and request.user.is_authenticated:
-        comment_content = request.POST.get('comment')
-        if comment_content:
-            BlogComment.objects.create(post=post, user=request.user, content=comment_content)
-
-    return render(request, 'portal/blog.html', {'post': post, 'comments': post.comments.all()})
-
-def submit_comment(request):
-    if request.method == 'POST' and request.user.is_authenticated:
-        comment_content = request.POST.get('comment')
-        post_id = request.POST.get('post_id')
-        if comment_content and post_id:
-            try:
-                post = BlogPost.objects.get(id=post_id)
-                BlogComment.objects.create(
-                    user=request.user,
-                    content=comment_content,
-                    post=post
-                )
-            except BlogPost.DoesNotExist:
-                return HttpResponseRedirect(reverse('blog'))
-        return HttpResponseRedirect(reverse('blog'))
-    return HttpResponseRedirect(reverse('login'))
-def detalle_noticia(request, pk):
-    noticia = get_object_or_404(Noticia, pk=pk)
-    return render(request, 'portal/noticia_detalle.html', {'noticia': noticia})
-
-def home(request):
-    noticias = Noticia.objects.all().order_by('-fecha_publicacion')
-    return render(request, 'common/home.html', {'noticias': noticias})

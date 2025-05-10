@@ -7,12 +7,11 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
+    path('', TemplateView.as_view(template_name='common/home.html'), name='home'),
     path('legal/', TemplateView.as_view(template_name='common/legal.html'), name='legal'),
     path('error/', TemplateView.as_view(template_name='common/error.html'), name='error'),
     path('blog/', views.blog_list_view, name='blog_list'),
     path('blog/<int:post_id>/', views.blog_post_view, name='blog_post'),
-    path('noticia/<int:pk>/', views.detalle_noticia, name='detalle_noticia'),
     path('calendario/', TemplateView.as_view(template_name='portal/calendario.html'), name='calendario'),
     path('contacto/', TemplateView.as_view(template_name='portal/contacto.html'), name='contacto'),
     path('ranking/', TemplateView.as_view(template_name='portal/ranking.html'), name='ranking'),

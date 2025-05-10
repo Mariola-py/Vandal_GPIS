@@ -50,13 +50,3 @@ class BlogComment(models.Model):
 
     def __str__(self):
         return f"{self.user.username} on {self.post.title}"
-    
-class Noticia(models.Model):
-    titulo = models.CharField(max_length=200)
-    resumen = models.TextField()
-    contenido = models.TextField(blank=True, null=True)
-    fecha_publicacion = models.DateField()
-    imagen = models.ImageField(upload_to='noticias/')
-    
-    def __str__(self):
-        return self.titulo

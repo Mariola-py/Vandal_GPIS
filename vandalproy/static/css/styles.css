@@ -178,7 +178,7 @@ footer {
 }
 
 .footer-nav a {
-  color: var(--primary-color);
+  color: #4CAF50;
   text-decoration: none;
   font-weight: bold;
 }
