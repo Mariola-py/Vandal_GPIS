@@ -36,3 +36,40 @@
     height: 360px;
     width: auto;
   }
+
+  .noticia-detalle {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  
+  .titulo {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+  
+  .descripcion {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+  }
+  
+  .imagen img {
+    width: 100%;
+    height: auto;
+    border: 4px solid #ffffff22;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+  }
+  
+  .contenido {
+    padding: 2rem;
+    font-size: 1.1rem;
+    text-align: justify;
+    line-height: 1.8;
+    border-radius: 4px;
+  }
+  
