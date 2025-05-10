@@ -58,35 +58,26 @@
   </nav>
 
   <!-- Noticias Destacadas -->
-  <section id="noticias">
-    <h2>NOTICIAS DESTACADAS</h2>
-    <div class="list-noticias">
-      <!-- Noticia 1 -->
+<section id="noticias">
+  <h2>NOTICIAS DESTACADAS</h2>
+  <div class="list-noticias">
+    {% for noticia in noticias %}
       <div class="noticia">
-        <div class="headline">Empieza a diseñar juegos hoy mismo</div>
-        <div>
-          <a href="#"><img class="image" src="{% static 'images/Noticias/1.jpg' %}" alt="Noticia 1"></a>
-        </div>
-        <div class="summary">Se abre un curso de diseño de videojuegos en Alicante</div>
-      </div>
-      <!-- Noticia 2 -->
-      <div class="noticia">
-        <div class="headline">Nintendo Switch 2 causa polémica</div>
+        <div class="time">Hace {{ noticia.fecha_publicacion|timesince }}</div>
+        <div class="headline">{{ noticia.titulo }}</div>
         <div class="image">
-          <a href="#"><img class="image" src="{% static 'images/Noticias/2.jpg' %}" alt="Noticia 2"></a>
+          <a href="{% url 'detalle_noticia' noticia.pk %}">
+            <img class="image" src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}">
+          </a>
         </div>
-        <div class="summary">El anuncio de la nueva consola de Nintendo no ha dejado indiferente a nadie</div>
+        <div class="summary">{{ noticia.resumen|truncatechars:120 }}</div>
       </div>
-      <!-- Noticia 3 -->
-      <div class="noticia">
-        <div class="headline">Expedition 33 despunta en su primera semana</div>
-        <div class="image">
-          <a href="#"><img class="image" src="{% static 'images/Noticias/3.jpg' %}" alt="Noticia 3"></a>
-        </div>
-        <div class="summary">La mejor creación francesa luego de la guillotina</div>
-      </div>
-    </div>
-  </section>
+    {% empty %}
+      <p style="color: white;">No hay noticias por el momento.</p>
+    {% endfor %}
+  </div>
+</section>
+
 
   <!-- Últimas Noticias -->
   <section id="ultimas-noticias">
