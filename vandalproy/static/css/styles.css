@@ -193,3 +193,12 @@ footer {
   font-size: 14px;
   color: #666;
 }
+
+/* Estilo para el mensaje de bienvenida */
+.welcome-message {
+  font-size: 1.2em;
+  color: #4CAF50;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}

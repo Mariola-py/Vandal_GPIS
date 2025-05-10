@@ -1,7 +1,15 @@
 from django import forms
-from .models import Comment
+from .models import BlogComment
 
 class CommentForm(forms.ModelForm):
+    content = forms.CharField(
+        widget=forms.Textarea(attrs={
+            'rows': 4,
+            'placeholder': 'Escribe tu comentario aquí...'
+        }),
+        label=''
+    )
+
     class Meta:
-        model = Comment
+        model = BlogComment
         fields = ['content']

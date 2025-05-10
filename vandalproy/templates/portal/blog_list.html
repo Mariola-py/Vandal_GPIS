@@ -20,6 +20,8 @@
       <a href="/en" class="lang-option">EN</a>
     </div>
     {% if user.is_authenticated %}
+    <p>Bienvenido {{ user.username }}</p>
+
     <div class="login-icon">
       <a href="/logout/">
         <button>Cerrar sesión</button>
@@ -84,30 +86,34 @@
   </section>
 
   <!-- Sección de comentarios -->
-  <div class="comments-section">
-    <h2>Comentarios</h2>
-    {% if user.is_authenticated %}
-    <form action="/submit_comment/" method="POST">
-      {% csrf_token %}
-      <input type="hidden" name="post_id" value="{{ post.id }}">
-      <textarea name="comment" rows="4" placeholder="Escribe tu comentario aquí..." required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-    {% else %}
-    <p>Inicia sesión para añadir un comentario.</p>
-    {% endif %}
+<section id="comments-section">
+  <h2>Comentarios sobre el blog</h2>
 
-    <div class="comments-list">
-      {% for comment in comments %}
+  {% if user.is_authenticated %}
+  <form action="{% url 'blog_list' %}" method="POST" class="comment-form">
+    {% csrf_token %}
+    <!-- post_id vacío → comentario “general” -->
+    <input type="hidden" name="post_id" value="">
+    {{ form.content }}
+    <button type="submit">Enviar comentario</button>
+  </form>
+  {% else %}
+  <p><a href="{% url 'login' %}">Inicia sesión</a> para dejar un comentario.</p>
+  {% endif %}
+
+  <div class="comments-list">
+    {% if page_comments %}
+      {% for comment in page_comments %}
       <div class="comment">
         <p><strong>{{ comment.user.username }}</strong>: {{ comment.content }}</p>
         <p class="date">{{ comment.created_at|date:"d M Y H:i" }}</p>
       </div>
-      {% empty %}
-      <p>No hay comentarios aún. ¡Sé el primero en comentar!</p>
       {% endfor %}
-    </div>
+    {% else %}
+      <p>No hay comentarios sobre el blog aún. Sé el primero.</p>
+    {% endif %}
   </div>
+</section>
 
   <!-- Sección de contacto -->
   <div style="text-align: center;">
