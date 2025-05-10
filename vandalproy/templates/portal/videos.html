@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VANDAL</title>
   <!-- Enlace al archivo de estilos principal -->
-  <link rel="stylesheet" href="../../static/css/styles.css">
-  <link rel="stylesheet" href="../../static/css/videos.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/videos.css' %}">
 </head>
 
 <body>
@@ -27,7 +28,7 @@
     {% else %}
     <div class="login-icon">
       <a href="/login/">
-        <img class="social-icons" src="../../static/images/Logos/Login_icon.png" alt="Login Icon">
+        <img class="social-icons" src="{% static 'images/Logos/Login_icon.png' %}" alt="Login Icon">
       </a>
     </div>
     {% endif %}
@@ -37,7 +38,7 @@
   <nav class="navbar">
     <div>
       <a href="/">
-        <img class="logo" src="../../static/images/Logos/vandal_logo.PNG" alt="Vandal Logo">
+        <img class="logo" src="{% static 'images/Logos/vandal_logo.PNG' %}" alt="Vandal Logo">
       </a>
     </div>
   </nav>
@@ -61,7 +62,7 @@
       <!-- Video 1 -->
       <div class="video-item">
         <video controls>
-          <source src="../../static/videos/video.mp4" type="video/mp4">
+          <source src="{% static 'videos/video.mp4' %}" type="video/mp4">
           Tu navegador no soporta la reproducción de videos.
         </video>
         <p>Video 1: Introducción</p>
@@ -69,7 +70,7 @@
       <!-- Video 2 -->
       <div class="video-item">
         <video controls>
-          <source src="../../static/videos/video2.mp4" type="video/mp4">
+          <source src="{% static 'videos/video2.mp4' %}" type="video/mp4">
           Tu navegador no soporta la reproducción de videos.
         </video>
         <p>Video 2: Tutorial</p>
@@ -77,7 +78,7 @@
       <!-- Video 3 -->
       <div class="video-item">
         <video controls>
-          <source src="../../static/videos/video3.mp4" type="video/mp4">
+          <source src="{% static 'videos/video3.mp4' %}" type="video/mp4">
           Tu navegador no soporta la reproducción de videos.
         </video>
         <p>Video 3: Avances</p>
@@ -96,7 +97,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-logo">
-      <img class="logo-footer" src="../../static/images/Logos/vandal_logo.PNG" alt="Vandal Logo Footer">
+      <img class="logo-footer" src="{% static 'images/Logos/vandal_logo.PNG' %}" alt="Vandal Logo Footer">
     </div>
     </br>
     <nav class="footer-nav">

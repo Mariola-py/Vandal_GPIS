@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VANDAL</title>
   <!-- Enlace al archivo de estilos principal -->
-  <link rel="stylesheet" href="../../static/css/styles.css">
-  <link rel="stylesheet" href="../../static/css/ranking.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/ranking.css' %}">
 </head>
 
 <body>
@@ -27,7 +28,7 @@
     {% else %}
     <div class="login-icon">
       <a href="/login/">
-        <img class="social-icons" src="../../static/images/Logos/Login_icon.png" alt="Login Icon">
+        <img class="social-icons" src="{% static 'images/Logos/Login_icon.png' %}" alt="Login Icon">
       </a>
     </div>
     {% endif %}
@@ -37,7 +38,7 @@
   <nav class="navbar">
     <div>
       <a href="/">
-        <img class="logo" src="../../static/images/Logos/vandal_logo.PNG" alt="Vandal Logo">
+        <img class="logo" src="{% static 'images/Logos/vandal_logo.PNG' %}" alt="Vandal Logo">
       </a>
     </div>
   </nav>
@@ -62,7 +63,7 @@
       <!-- Top 1 -->
       <div class="ranking-container">
         <div class="caratula">
-          <img src="../../static/images/Ranking/1.jpg" alt="Top 1">
+          <img src="{% static 'images/Ranking/1.jpg' %}" alt="Top 1">
         </div>
         <div class="info">
           <div class="title">1. Super Mario Bros</div>
@@ -79,7 +80,7 @@
       <!-- Top 2 -->
       <div class="ranking-container">
         <div class="caratula">
-          <img src="../../static/images/Ranking/2.jpg" alt="Top 2">
+          <img src="{% static 'images/Ranking/2.jpg' %}" alt="Top 2">
         </div>
         <div class="info">
           <div class="title">2. The Legend of Zelda: Ocarina Of Time</div>
@@ -96,7 +97,7 @@
       <!-- Top 3 -->
       <div class="ranking-container">
         <div class="caratula">
-          <img src="../../static/images/Ranking/3.jpg" alt="Top 3">
+          <img src="{% static 'images/Ranking/3.jpg' %}" alt="Top 3">
         </div>
         <div class="info">
           <div class="title">3. Monster Hunter World</div>
@@ -112,7 +113,7 @@
       <!-- Top 4 -->
       <div class="ranking-container">
         <div class="caratula">
-          <img src="../../static/images/Ranking/4.png" alt="Top 4">
+          <img src="{% static 'images/Ranking/4.png' %}" alt="Top 4">
         </div>
         <div class="info">
           <div class="title">4. Tetris</div>
@@ -130,7 +131,7 @@
       <!-- Top 5 -->
       <div class="ranking-container">
         <div class="caratula">
-          <img src="../../static/images/Ranking/5.jpg" alt="Top 5">
+          <img src="{% static 'images/Ranking/5.jpg' %}" alt="Top 5">
         </div>
         <div class="info">
           <div class="title">5. Final Fantasy VII</div>
@@ -147,7 +148,7 @@
       <!-- Top 6 -->
       <div class="ranking-container">
         <div class="caratula">
-          <img src="../../static/images/Ranking/6.jpg" alt="Top 6">
+          <img src="{% static 'images/Ranking/6.jpg' %}" alt="Top 6">
         </div>
         <div class="info">
           <div class="title">6. The Witcher 3: Wild Hunt</div>
@@ -166,7 +167,7 @@
       <!-- Top 7 -->
       <div class="ranking-container">
         <div class="caratula">
-          <img src="../../static/images/Ranking/7.jpg" alt="Top 7">
+          <img src="{% static 'images/Ranking/7.jpg' %}" alt="Top 7">
         </div>
         <div class="info">
           <div class="title">7. Dark Souls</div>
@@ -183,7 +184,7 @@
       <!-- Top 8 -->
       <div class="ranking-container">
         <div class="caratula">
-          <img src="../../static/images/Ranking/8.jpg" alt="Top 8">
+          <img src="{% static 'images/Ranking/8.jpg' %}" alt="Top 8">
         </div>
         <div class="info">
           <div class="title">8. NieR: Replicant</div>
@@ -200,7 +201,7 @@
       <!-- Top 9 -->
       <div class="ranking-container">
         <div class="caratula">
-          <img src="../../static/images/Ranking/9.jpg" alt="Top 9">
+          <img src="{% static 'images/Ranking/9.jpg' %}" alt="Top 9">
         </div>
         <div class="info">
           <div class="title">9. Minecraft</div>
@@ -217,7 +218,7 @@
       <!-- Top 10 -->
       <div class=" ranking-container">
           <div class="caratula">
-            <img src="../../static/images/Ranking/10.jpg" alt="Top 10">
+            <img src="{% static 'images/Ranking/10.jpg' %}" alt="Top 10">
           </div>
           <div class="info">
             <div class="title">10. Persona 5</div>
@@ -247,7 +248,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-logo">
-      <img class="logo-footer" src="../../static/images/Logos/vandal_logo.PNG" alt="Vandal Logo Footer">
+      <img class="logo-footer" src="{% static 'images/Logos/vandal_logo.PNG' %}" alt="Vandal Logo Footer">
     </div>
     </br>
     <nav class="footer-nav">

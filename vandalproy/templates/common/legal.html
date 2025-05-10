@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VANDAL</title>
   <!-- Enlace al archivo de estilos principal -->
-  <link rel="stylesheet" href="../../static/css/styles.css">
-  <link rel="stylesheet" href="../../static/css/noticias.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/noticias.css' %}">
 </head>
 
 <body>
@@ -27,7 +28,7 @@
     {% else %}
     <div class="login-icon">
       <a href="/login/">
-        <img class="social-icons" src="../../static/images/Logos/Login_icon.png" alt="Login Icon">
+        <img class="social-icons" src="{% static 'images/Logos/Login_icon.png' %}" alt="Login Icon">
       </a>
     </div>
     {% endif %}
@@ -37,7 +38,7 @@
   <nav class="navbar">
     <div>
       <a href="/">
-        <img class="logo" src="../../static/images/Logos/vandal_logo.PNG" alt="Vandal Logo">
+        <img class="logo" src="{% static 'images/Logos/vandal_logo.PNG' %}" alt="Vandal Logo">
       </a>
     </div>
   </nav>
@@ -68,7 +69,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-logo">
-      <img class="logo-footer" src="../../static/images/Logos/vandal_logo.PNG" alt="Vandal Logo Footer">
+      <img class="logo-footer" src="{% static 'images/Logos/vandal_logo.PNG' %}" alt="Vandal Logo Footer">
     </div>
     </br>
     <nav class="footer-nav">

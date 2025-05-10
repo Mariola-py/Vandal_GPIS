@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VANDAL</title>
   <!-- Enlace al archivo de estilos principal -->
-  <link rel="stylesheet" href="../../static/css/styles.css">
-  <link rel="stylesheet" href="../../static/css/formularios.css">
-  <link rel="stylesheet" href="../../static/css/login.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/formularios.css' %}">
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
     {% else %}
     <div class="login-icon">
       <a href="/login/">
-        <img class="social-icons" src="../../static/images/Logos/Login_icon.png" alt="Login Icon">
+        <img class="social-icons" src="{% static 'images/Logos/Login_icon.png' %}" alt="Login Icon">
       </a>
     </div>
     {% endif %}
@@ -39,7 +39,7 @@
   <nav class="navbar">
     <div>
       <a href="/">
-        <img class="logo" src="../../static/images/Logos/vandal_logo.PNG" alt="Vandal Logo">
+        <img class="logo" src="{% static 'images/Logos/vandal_logo.PNG' %}" alt="Vandal Logo">
       </a>
     </div>
   </nav>
@@ -95,13 +95,13 @@
     <p>Cuéntanos para que podamos lanzar un hechizo de corrección.</p>
   </div>
   <div style="text-align: center; margin: 20px 0;">
-    <a href="../portal/contacto.html" class="contact-button">Contáctanos</a>
+    <a href="/contacto" class="contact-button">Contáctanos</a>
   </div>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-logo">
-      <img class="logo-footer" src="../../static/images/Logos/vandal_logo.PNG" alt="Vandal Logo Footer">
+      <img class="logo-footer" src="{% static 'images/Logos/vandal_logo.PNG' %}" alt="Vandal Logo Footer">
     </div>
     </br>
     <nav class="footer-nav">

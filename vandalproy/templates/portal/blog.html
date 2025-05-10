@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VANDAL</title>
   <!-- Enlace al archivo de estilos principal -->
-  <link rel="stylesheet" href="../../static/css/styles.css">
-  <link rel="stylesheet" href="../../static/css/blog.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
 
 <body>
@@ -27,7 +28,7 @@
     {% else %}
     <div class="login-icon">
       <a href="/login/">
-        <img class="social-icons" src="../../static/images/Logos/Login_icon.png" alt="Login Icon">
+        <img class="social-icons" src="{% static 'images/Logos/Login_icon.png' %}" alt="Login Icon">
       </a>
     </div>
     {% endif %}
@@ -37,7 +38,7 @@
   <nav class="navbar">
     <div>
       <a href="/">
-        <img class="logo" src="../../static/images/Logos/vandal_logo.PNG" alt="Vandal Logo">
+        <img class="logo" src="{% static 'images/Logos/vandal_logo.PNG' %}" alt="Vandal Logo">
       </a>
     </div>
   </nav>
@@ -62,14 +63,14 @@
         <div class="title">¿Son demasiado caros los juegos modernos?</div>
         <div class="desc">Varios ejemplos modernos nos hacen surgir la duda sobre el precio del gaming moderno y su gran
           diferencia con tiempos pasados, pero, ¿Es realmente cierto?</div>
-        <div><img class="image" src="../../static/images/Blog/2.jpg" alt=""></div>
+        <div><img class="image" src="{% static 'images/Blog/2.jpg' %}" alt=""></div>
       </article>
       <article class="card">
         <div class="date">28 abril 2025</div>
         <div class="title">El desarrollo de un juego y como este puede afectar al producto final</div>
         <div class="desc">En este artículo, exploraremos cómo el desarrollo de un juego puede influir en la experiencia
           del usuario y en la calidad del producto final.</div>
-        <div><img class="image" src="../../static/images/Blog/1.jpg" alt=""></div>
+        <div><img class="image" src="{% static 'images/Blog/1.jpg' %}" alt=""></div>
       </article>
       <article class="card">
         <div class="date">5 mayo 2025</div>
@@ -77,7 +78,7 @@
         <div class="desc">En los últimos años hemos visto surgir muchos videojuegos como servicio, como fortnite, marvel
           rivals, etc... ¿Son estos el futuro del gaming como nos venden? O su modelo predatorio ha hecho más mal que
           bien?</div>
-        <div><img class="image" src="../../static/images/Blog/3.jpg" alt=""></div>
+        <div><img class="image" src="{% static 'images/Blog/3.jpg' %}" alt=""></div>
       </article>
     </div>
   </section>
@@ -120,7 +121,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-logo">
-      <img class="logo-footer" src="../../static/images/Logos/vandal_logo.PNG" alt="Vandal Logo Footer">
+      <img class="logo-footer" src="{% static 'images/Logos/vandal_logo.PNG' %}" alt="Vandal Logo Footer">
     </div>
     </br>
     <nav class="footer-nav">
