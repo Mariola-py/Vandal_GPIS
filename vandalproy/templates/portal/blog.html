@@ -18,11 +18,19 @@
         <img src="../../static/images/Logos/version_inglesa.png" alt="English Version" class="social-icons">
       </a>
     </div>
+    {% if user.is_authenticated %}
     <div class="login-icon">
-      <a href="/login">
+      <a href="/logout/">
+        <button>Cerrar sesión</button>
+      </a>
+    </div>
+    {% else %}
+    <div class="login-icon">
+      <a href="/login/">
         <img class="social-icons" src="../../static/images/Logos/Login_icon.png" alt="Login Icon">
       </a>
     </div>
+    {% endif %}
   </nav>
 
   <!-- Logo principal -->
@@ -73,6 +81,32 @@
       </article>
     </div>
   </section>
+
+  <!-- Sección de comentarios -->
+  <div class="comments-section">
+    <h2>Comentarios</h2>
+    {% if user.is_authenticated %}
+    <form action="/submit_comment/" method="POST">
+      {% csrf_token %}
+      <input type="hidden" name="post_id" value="{{ post.id }}">
+      <textarea name="comment" rows="4" placeholder="Escribe tu comentario aquí..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    {% else %}
+    <p>Inicia sesión para añadir un comentario.</p>
+    {% endif %}
+
+    <div class="comments-list">
+      {% for comment in comments %}
+      <div class="comment">
+        <p><strong>{{ comment.user.username }}</strong>: {{ comment.content }}</p>
+        <p class="date">{{ comment.created_at|date:"d M Y H:i" }}</p>
+      </div>
+      {% empty %}
+      <p>No hay comentarios aún. ¡Sé el primero en comentar!</p>
+      {% endfor %}
+    </div>
+  </div>
 
   <!-- Sección de contacto -->
   <div style="text-align: center;">

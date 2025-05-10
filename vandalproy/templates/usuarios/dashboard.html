@@ -6,6 +6,21 @@
     <title>Dashboard</title>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">Menú</button>
+            <div class="dropdown-content">
+                {% if role == 'redactor' %}
+                    <a href="/dashboard/redactor/">Panel de Redactor</a>
+                {% elif role == 'colaborador' %}
+                    <a href="/dashboard/colaborador/">Panel de Colaborador</a>
+                {% elif role == 'suscriptor' %}
+                    <a href="/dashboard/suscriptor/">Panel de Suscriptor</a>
+                {% endif %}
+                <a href="/logout/">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
     <h1>Bienvenido, {{ user.username }}</h1>
     <h2>Comentarios</h2>
     <ul>

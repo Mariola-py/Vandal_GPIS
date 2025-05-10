@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -19,11 +20,19 @@
         <img src="../../static/images/Logos/version_inglesa.png" alt="English Version" class="social-icons">
       </a>
     </div>
+    {% if user.is_authenticated %}
     <div class="login-icon">
-      <a href="/login">
+      <a href="/logout/">
+        <button>Cerrar sesión</button>
+      </a>
+    </div>
+    {% else %}
+    <div class="login-icon">
+      <a href="/login/">
         <img class="social-icons" src="../../static/images/Logos/Login_icon.png" alt="Login Icon">
       </a>
     </div>
+    {% endif %}
   </nav>
 
   <!-- Logo principal -->
@@ -49,7 +58,8 @@
 
 
   <div class="container">
-    <form class="separador_login" action="/login" method="POST">
+    <form class="separador_login" action="/login/" method="POST">
+      {% csrf_token %}
       <h2>Vuelve al juego</h2>
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required><br>
@@ -60,7 +70,8 @@
       <button type="submit">Iniciar sessión</button>
     </form>
 
-    <form class="separador_login" action="/registro" method="POST">
+    <form class="separador_login" action="/registro/" method="POST">
+      {% csrf_token %}
       <h2>¿Nuevo por aquí?</h2>
       <label for="nombre">Nombre de usuario:</label>
       <input type="text" id="nombre" name="nombre" required><br>

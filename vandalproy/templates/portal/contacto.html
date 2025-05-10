@@ -19,11 +19,19 @@
         <img src="../../static/images/Logos/version_inglesa.png" alt="English Version" class="social-icons">
       </a>
     </div>
+    {% if user.is_authenticated %}
     <div class="login-icon">
-      <a href="/login">
+      <a href="/logout/">
+        <button>Cerrar sesión</button>
+      </a>
+    </div>
+    {% else %}
+    <div class="login-icon">
+      <a href="/login/">
         <img class="social-icons" src="../../static/images/Logos/Login_icon.png" alt="Login Icon">
       </a>
     </div>
+    {% endif %}
   </nav>
 
   <!-- Logo principal -->
