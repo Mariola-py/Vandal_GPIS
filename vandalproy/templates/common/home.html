@@ -27,7 +27,7 @@
                     <button class="dropdown-button">Bienvenido
                         {{ user.username }}</button>
                     <div class="dropdown-content">
-                        <a href="/{{ LANGUAGE_CODE }}/dashboard/{{ user.userrole.role }}/">Ir a mi panel</a>
+                        <a href="/{{ LANGUAGE_CODE }}/dashboard/{{ user.userrole.role }}">Ir a mi panel</a>
                         <a href="/{{ LANGUAGE_CODE }}/logout/">Cerrar sesión</a>
                     </div>
                 </div>
@@ -182,8 +182,7 @@
         </nav>
     </br>
     <div class="footer-bottom">
-        {% trans "Copyright Vandal © 2025 - Prohibida la reproducción total o parcial de
-        estos con" + "tenidos sin el permiso expreso de los autores." %}
+      {% trans "Copyright Vandal © 2025 - Prohibida la reproducción total o parcial de estos contenidos sin el permiso expreso de los autores." %}
     </div>
 </footer>
 </body>

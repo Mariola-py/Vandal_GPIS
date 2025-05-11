@@ -5,6 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 from django.views.generic import TemplateView
+from .views import dashboard, user_dashboard, CommentDeleteView
 
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
@@ -26,10 +27,13 @@ urlpatterns += i18n_patterns(
     path('login/', views.login_view, name='login'),
     path('registro/', views.register_view, name='register'),
     path('logout/', views.logout_view, name='logout'),
-    path('dashboard/', views.dashboard, name='user_dashboard'),
-    path('dashboard/redactor/', views.user_dashboard, {'role': 'redactor'}, name='dashboard_redactor'),
-    path('dashboard/colaborador/', views.user_dashboard, {'role': 'colaborador'}, name='dashboard_colaborador'),
-    path('dashboard/suscriptor/', views.user_dashboard, {'role': 'suscriptor'}, name='dashboard_suscriptor'),
+    path('dashboard/', dashboard, name='error'),
+    path('dashboard/<str:role>/', user_dashboard, name='dashboard_view'),
+    path('dashboard/colaborador/', user_dashboard, name='dashboard_colaborador'),
+    path('dashboard/redactor/', user_dashboard, name='dashboard_redactor'),
+    path('dashboard/suscriptor/', user_dashboard, name='dashboard_suscriptor'),
+    path('dashboard/comment/<int:pk>/delete/', CommentDeleteView.as_view(), name='comment_delete'),
+    path('dashboard/suscriptor/change-password/', views.change_password, name='change_password'),
 )
 
 if settings.DEBUG:

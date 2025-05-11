@@ -27,7 +27,7 @@
     <div class="login-dropdown">
       <button class="dropdown-button">Bienvenido {{ user.username }}</button>
       <div class="dropdown-content">
-        <a href="/{{ LANGUAGE_CODE }}/dashboard/{{ user.userrole.role }}/">Ir a mi panel</a>
+        <a href="/{{ LANGUAGE_CODE }}/dashboard/{{ user.userrole.role }}">Ir a mi panel</a>
         <a href="/{{ LANGUAGE_CODE }}/logout/">Cerrar sesión</a>
       </div>
     </div>
@@ -63,7 +63,7 @@
 
 
   <div class="container">
-    <form class="separador_login" action="/login/" method="POST">
+    <form class="separador_login" action="/es/login/" method="POST">
       {% csrf_token %}
       <h2>Vuelve al juego</h2>
       <label for="email">Email:</label>
@@ -75,7 +75,7 @@
       <button type="submit">Iniciar sessión</button>
     </form>
 
-    <form class="separador_login" action="/registro/" method="POST">
+    <form class="separador_login" action="/es/registro/" method="POST">
       {% csrf_token %}
       <h2>¿Nuevo por aquí?</h2>
       <label for="nombre">Nombre de usuario:</label>
