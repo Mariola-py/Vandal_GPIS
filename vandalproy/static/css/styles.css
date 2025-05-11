@@ -199,3 +199,40 @@ footer {
   margin: 0;
   padding: 0;
 }
+
+.hidden {
+  display: none;
+}
+
+/* Estilos para inputs y textarea del formulario de nuevo post */
+.dashboard-form input,
+.dashboard-form textarea {
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.dashboard-form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3em;
+  color: white;
+}
+
+/* Estilos para el botón Publicar */
+.btn.btn-success {
+  background-color: #28a745;
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn.btn-success:hover {
+  background-color: #1e7e34;
+}

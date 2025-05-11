@@ -1,5 +1,5 @@
 from django import forms
-from .models import BlogComment
+from .models import BlogComment, BlogPost
 
 class CommentForm(forms.ModelForm):
     content = forms.CharField(
@@ -13,3 +13,13 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = BlogComment
         fields = ['content']
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = BlogPost
+        fields = ['title', 'content', 'image']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'content': forms.Textarea(attrs={'rows': 5, 'class': 'form-control'}),
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+        }

@@ -5,7 +5,7 @@ from django.core.files.storage import FileSystemStorage
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import User
 from .models import BlogPost, BlogComment, UserRole, Noticia
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 from django.contrib.auth.backends import ModelBackend
 import logging
 from django.http import HttpResponseRedirect
@@ -57,6 +57,13 @@ def user_dashboard(request, role):
             fs = FileSystemStorage(location='static/uploads/')
             fs.save(request.FILES['file'].name, request.FILES['file'])
             return redirect(f'dashboard_{role}')
+        if 'post_submit' in request.POST and role in ['colaborador', 'redactor']:
+            post_form = PostForm(request.POST, request.FILES)
+            if post_form.is_valid():
+                post = post_form.save(commit=False)
+                post.author = request.user
+                post.save()
+                return redirect(f'dashboard_{role}')
 
     # 3) Construir contexto **fuera** del POST, para GET y POST invalidados
     comments = BlogComment.objects.filter(user=request.user).order_by('-created_at')
