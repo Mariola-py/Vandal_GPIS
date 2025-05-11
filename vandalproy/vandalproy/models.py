@@ -25,7 +25,9 @@ class UserRole(models.Model):
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=200)
+    title_en = models.CharField(max_length=200, blank=True, null=True)
     content = models.TextField()
+    content_en = models.TextField(blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     image = models.ImageField(upload_to='blog/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -57,10 +59,14 @@ class BlogComment(models.Model):
     
 class Noticia(models.Model):
     titulo = models.CharField(max_length=200)
+    titulo_en = models.CharField(max_length=200, blank=True)
     resumen = models.TextField()
-    contenido = models.TextField(blank=True, null=True)
+    resumen_en = models.TextField(blank=True)
+    contenido = models.TextField()
+    contenido_en = models.TextField(blank=True)
     fecha_publicacion = models.DateField()
     imagen = models.ImageField(upload_to='noticias/')
-    
+
     def __str__(self):
         return self.titulo
+
