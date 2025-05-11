@@ -90,6 +90,29 @@
                 </form>
             </div>
 
+            <!-- Sección de Crear Noticia -->
+            <div class="dashboard-card">
+                <h2>Crear Noticia</h2>
+
+                <form method="post" enctype="multipart/form-data" class="dashboard-form">
+                    {% csrf_token %}
+
+                    <label for="id_titulo">Título:</label>
+                    <input type="text" name="titulo" id="id_titulo" class="form-control" required>
+
+                    <label for="id_resumen">Resumen:</label>
+                    <textarea name="resumen" id="id_resumen" rows="3" class="form-control" required></textarea>
+
+                    <label for="id_contenido">Contenido:</label>
+                    <textarea name="contenido" id="id_contenido" rows="6" class="form-control" required></textarea>
+
+                    <label for="id_imagen">Imagen:</label>
+                    <input type="file" name="imagen" id="id_imagen" class="form-control">
+
+                    <button type="submit" name="noticia_submit" class="btn btn-success" style="margin-top: 1em;">Publicar Noticia</button>
+                </form>
+            </div>
+
             <!-- Sección de Posts -->
             <div class="dashboard-card">
                 <h2>Tus Posts</h2>

@@ -64,6 +64,23 @@ def user_dashboard(request, role):
                 post.author = request.user
                 post.save()
                 return redirect(f'dashboard_{role}')
+        if 'noticia_submit' in request.POST and role == 'redactor':
+            titulo = request.POST.get('titulo')
+            resumen = request.POST.get('resumen')
+            contenido = request.POST.get('contenido')
+            imagen = request.FILES.get('imagen')
+
+            # Crear noticia sin 'autor', usando fecha actual
+            from datetime import date
+            Noticia.objects.create(
+                titulo=titulo,
+                resumen=resumen,
+                contenido=contenido,
+                imagen=imagen,
+                fecha_publicacion=date.today()
+            )
+
+            return redirect(f'dashboard_{role}')
 
     # 3) Construir contexto **fuera** del POST, para GET y POST invalidados
     comments = BlogComment.objects.filter(user=request.user).order_by('-created_at')
