@@ -1,7 +1,7 @@
 /* Estilos elementos html */
 :root {
   --primary-color: #fff;
-  --accent-color: #a7a7a7;
+  --accent-color: red;
   --bg-light: #f9f9f9;
   --text-color: #ffffff;
   --font-sans: 'Helvetica Neue', Arial, sans-serif;
@@ -101,6 +101,7 @@ nav.navbar ul {
   list-style: none;
   display: flex;
   gap: 20px;
+  overflow: auto;
 }
 
 .footer-nav a:hover {

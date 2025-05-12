@@ -14,6 +14,8 @@
   }
   
   .noticia .time {
+    display: flex;
+    flex-direction: column;
     font-size: 0.85rem;
     color: #777;
     margin-bottom: 5px;
@@ -22,6 +24,8 @@
   .noticia .headline {
     font-size: 30px;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 10px;
   }
   
@@ -29,6 +33,8 @@
     font-size: 0.95rem;
     color: #ffffff;
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
   }
   
   .noticia .image {
