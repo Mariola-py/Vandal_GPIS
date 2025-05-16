@@ -39,7 +39,6 @@ class BlogComment(models.Model):
     def __str__(self):
         return f"{self.user.username} en {self.post.title if self.post else 'General'}"
 
-    
 class Noticia(models.Model):
     titulo = models.CharField(max_length=200)
     titulo_en = models.CharField(max_length=200, blank=True)
@@ -52,4 +51,3 @@ class Noticia(models.Model):
 
     def __str__(self):
         return self.titulo
-
