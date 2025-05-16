@@ -29,7 +29,7 @@ urlpatterns += i18n_patterns(
     path('logout/', views.logout_view, name='logout'),
     path('dashboard/', dashboard, name='error'),
     path('dashboard/<str:role>/', user_dashboard, name='dashboard_view'),
-    path('dashboard/admin/', admin.site.urls),
+    path('/dashboard/admin/', admin.site.urls),
     path('dashboard/colaborador/', user_dashboard, name='dashboard_colaborador'),
     path('dashboard/redactor/', user_dashboard, name='dashboard_redactor'),
     path('dashboard/suscriptor/', user_dashboard, name='dashboard_suscriptor'),
